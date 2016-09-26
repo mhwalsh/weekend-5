@@ -36,6 +36,10 @@ router.get('/', function(req, res) {
   }); //end of find
 }); //end of get
 
+router.get('/enum', function(req, res) {
+  res.send(Pet.schema.path('animal_type').enumValues);
+});
+
 router.post('/', function(req, res) {
   console.log('in pets post');
   console.log('req.body=', req.body);

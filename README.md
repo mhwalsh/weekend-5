@@ -47,6 +47,7 @@ Committing after each step
 6. add angular routing 
 7. get three views working with client side routing
 8. how not to refresh
+9. load enum from db
 
 
 #### Technology

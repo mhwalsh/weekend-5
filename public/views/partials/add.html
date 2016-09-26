@@ -5,7 +5,7 @@
         <input ng-model="name" id="name" type="text">
       </label>
       <label for="animal"> Animal Type:
-        <input ng-model="animal" id="animal" type="text">
+        <select ng-model="animal" ng-options="e as e.type for e in enum track by e.type" name="animal"></select>
       </label>
       <label for="age"> Age:
         <input ng-model="age" id="age" type="text">
