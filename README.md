@@ -23,7 +23,7 @@
 Commiting after
 1. init git, gitignore, file structure, npm file structure
 2. server listening
-4. server returning the index.html in an index.html router.
+4. server returning the index.html in an index router.
 	- ```GET / ``` - serves the index.html
 5. what routes? 
 	- ```GET pets``` - returns all pets
