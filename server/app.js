@@ -7,6 +7,10 @@ var mongoose = require('mongoose');
 var connection = require('../modules/connection');
 mongoose.connect(connection);
 
+//body parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 // require and use index router
 var index = require('../routers/index');
 app.use('/', index);

@@ -14,14 +14,14 @@ router.get('/test', function(req, res) {
 
   dummyPet.save(function(err) {
     if(err){
-      console.log(err);
+      console.log('error occurred:', err);
       res.sendStatus(500);
     }else{
       // created
       res.sendStatus(201);
     }
-  });
-});
+  }); //end of save
+}); //end of test get
 
 /* Gets all pets */
 router.get('/', function(req, res) {
@@ -33,12 +33,35 @@ router.get('/', function(req, res) {
     }else{
       res.send(foundPets);
     }
-  });
-});
+  }); //end of find
+}); //end of get
 
 router.post('/', function(req, res) {
   console.log('in pets post');
-  res.sendStatus(200);
-});
+  console.log('req.body=', req.body);
+
+  var pet = req.body;
+
+  var petImage;
+  if(pet.image){
+    petImage = pet.image;
+  } // else pet image undefined
+
+  var newIncomingPet = new Pet({
+    name: pet.name,
+    animal_type: pet.animal_type,
+    age: pet.age,
+    image: petImage
+  });
+
+  newIncomingPet.save(function(err) {
+    if(err){
+      console.log('error occurred:', err);
+      res.sendStatus(500);
+    }else{
+      res.sendStatus(201);
+    }
+  }); //end of save
+}); //end of post
 
 module.exports = router;
