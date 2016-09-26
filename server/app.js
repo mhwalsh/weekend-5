@@ -1,6 +1,11 @@
 /* Main server file */
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
+
+//Database connection
+var connection = require('../modules/connection');
+mongoose.connect(connection);
 
 // require and use index router
 var index = require('../routers/index');

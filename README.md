@@ -31,10 +31,11 @@ Commiting after
 6. get these routes logging in a pet router
 7. mongoose model
 8. require the model
-9. store some dummy data
-10. wire up the ``` GET pets```
-11. get the ```POST pets``` working and test
-12.
+9. add connection string 
+10. store some dummy data
+11. wire up the ``` GET pets```
+12. get the ```POST pets``` working and test
+13. 
 
 
 #### Technology
