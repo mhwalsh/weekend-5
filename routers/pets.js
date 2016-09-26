@@ -26,7 +26,14 @@ router.get('/test', function(req, res) {
 /* Gets all pets */
 router.get('/', function(req, res) {
   console.log('in pets get');
-  res.sendStatus(200);
+  Pet.find({}, function(err, foundPets) {
+    if(err){
+      console.log('error occurred:', err);
+      res.sendStatus(500);
+    }else{
+      res.send(foundPets);
+    }
+  });
 });
 
 router.post('/', function(req, res) {
