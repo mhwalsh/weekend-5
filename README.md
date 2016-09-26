@@ -40,7 +40,7 @@ Committing after each step
 
 ##### FRONT END
 1. src angular and client side js
-2. in one view get all animals showing
+2. in one view get all animals showing and style a bit
 3. add form - with drop down populated from db
 4. wire up form
 5. add angular routing 

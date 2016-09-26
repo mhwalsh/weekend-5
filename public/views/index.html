@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
-    <title>Millie's Pet House</title>
+    <title>Millie's Pet Palace</title>
     <script src="./vendors/angular.min.js"></script>
     <script src="./scripts/clientapp.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
+    <h2>Millie's Pet Palace</h2>
+    <div ng-controller="petViewController" id="petView">
+        <div class="petDiv" ng-repeat="pet in pets">
+          <div id="petName">
+            Name: {{pet.name}}
+          </div>
+          <div id="petType">
+            Animal: {{pet.animal_type}}
+          </div>
+          <div id="petAge">
+            Age: {{pet.age}}
+          </div>
+          <div class="imageDiv">
+            <img class="petImage" src="{{pet.image}}" alt="a pet" />
+          </div>
+        </div>
+    </div>
   </body>
 </html>
