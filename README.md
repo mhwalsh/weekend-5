@@ -20,7 +20,9 @@
 
 
 #### Step 
-Commiting after
+Committing after each step
+
+##### BACK END
 1. init git, gitignore, file structure, npm file structure
 2. server listening
 4. server returning the index.html in an index router.
@@ -35,7 +37,14 @@ Commiting after
 10. store some dummy data
 11. wire up the ``` GET pets```
 12. get the ```POST pets``` working and test
-13. 
+
+##### FRONT END
+1. src angular and client side js
+2. in one view get all animals showing
+3. add form - with drop down populated from db
+4. wire up form
+5. add angular routing 
+6. get three views working with client side routing
 
 
 #### Technology
