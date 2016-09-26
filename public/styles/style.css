@@ -24,3 +24,31 @@ h2{
   width: 80%;
   height: 80%;
 }
+
+.myform {
+  margin:0 auto;
+  padding:14px;
+}
+
+#stylized {
+  background: LightBlue;
+  border-radius: 10px;
+}
+
+#stylized label {
+  display:block;
+  font-weight:bold;
+  text-align:left;
+}
+#stylized input {
+  padding:4px 2px;
+  border:solid 1px LightBlue;
+  margin:2px 0 20px 10px;
+}
+
+#stylized #addnew {
+  font-size: 24px;
+  border-radius: 10px;
+  padding:10px;
+  margin:  5px;
+}

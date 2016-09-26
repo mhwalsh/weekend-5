@@ -8,7 +8,7 @@
   </head>
   <body>
     <h2>Millie's Pet Palace</h2>
-    <div ng-controller="petViewController" id="petView">
+    <div ng-controller="viewPetController" id="petView">
         <div class="petDiv" ng-repeat="pet in pets">
           <div id="petName">
             Name: {{pet.name}}
@@ -23,6 +23,25 @@
             <img class="petImage" src="{{pet.image}}" alt="a pet" />
           </div>
         </div>
+    </div>
+    <div ng-controller="addPetController">
+      <div id="stylized" class="myform">
+        <form>
+          <label for="name"> Name:
+            <input ng-model="name" id="name" type="text">
+          </label>
+          <label for="animal"> Animal Type:
+            <input ng-model="animal" id="animal" type="text">
+          </label>
+          <label for="age"> Age:
+            <input ng-model="age" id="age" type="text">
+          </label>
+          <label for="image"> Image:
+            <input ng-model="image" id="image" type="text">
+          </label>
+          <input ng-click="addPet(name, animal, age, image)" type="button" value="Add new" id="addnew">
+        </form>
+      </div>
     </div>
   </body>
 </html>
