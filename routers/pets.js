@@ -68,4 +68,17 @@ router.post('/', function(req, res) {
   }); //end of save
 }); //end of post
 
+router.delete('/:id', function(req, res) {
+    console.log("params = ", req.params);
+    Pet.remove({"_id": req.params.id}, function(err) {
+      if(err){
+        console.log('error occurred:', err);
+        res.sendStatus(500);
+      }else{
+        console.log('removed=', req.params.id);
+        res.sendStatus(200);
+      }
+    });
+});
+
 module.exports = router;

@@ -10,4 +10,16 @@ myApp.controller('viewPetController', ['$scope', '$http', function($scope, $http
       console.log('err');
     });
   };
+
+  $scope.deletePet = function(id) {
+    console.log('clicked delete', id );
+    $http({
+      method: 'DELETE',
+      url: '/pets/' + id
+    }).then(function successCallback(response) {
+      console.log('delete res =', response);
+    }, function errorCallback(response) {
+      console.log('err');
+    });
+  };
 }]);
