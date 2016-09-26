@@ -1,0 +1,18 @@
+<div ng-controller="addPetController">
+  <div id="stylized" class="myform">
+    <form>
+      <label for="name"> Name:
+        <input ng-model="name" id="name" type="text">
+      </label>
+      <label for="animal"> Animal Type:
+        <input ng-model="animal" id="animal" type="text">
+      </label>
+      <label for="age"> Age:
+        <input ng-model="age" id="age" type="text">
+      </label>
+      <label for="image"> Image:
+        <input ng-model="image" id="image" type="text">
+      </label>
+      <input ng-click="addPet(name, animal, age, image)" type="button" value="Add new" id="addnew">
+    </form>
+  </div>

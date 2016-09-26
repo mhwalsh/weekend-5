@@ -43,8 +43,10 @@ Committing after each step
 2. in one view get all animals showing and style a bit
 3. add form - with drop down populated from db
 4. wire up form
-5. add angular routing 
-6. get three views working with client side routing
+5. npm install and vendor angular route
+6. add angular routing 
+7. get three views working with client side routing
+8. how not to refresh
 
 
 #### Technology

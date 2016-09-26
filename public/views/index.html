@@ -3,45 +3,19 @@
   <head>
     <title>Millie's Pet Palace</title>
     <script src="./vendors/angular.min.js"></script>
+    <script src="./vendors/angular-route.min.js"></script>
     <script src="./scripts/clientapp.js"></script>
+    <script src="./scripts/controllers/aboutPetController.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
     <h2>Millie's Pet Palace</h2>
-    <div ng-controller="viewPetController" id="petView">
-        <div class="petDiv" ng-repeat="pet in pets">
-          <div id="petName">
-            Name: {{pet.name}}
-          </div>
-          <div id="petType">
-            Animal: {{pet.animal_type}}
-          </div>
-          <div id="petAge">
-            Age: {{pet.age}}
-          </div>
-          <div class="imageDiv">
-            <img class="petImage" ng-src={{pet.image}} alt="a pet" />
-          </div>
-        </div>
-    </div>
-    <div ng-controller="addPetController">
-      <div id="stylized" class="myform">
-        <form>
-          <label for="name"> Name:
-            <input ng-model="name" id="name" type="text">
-          </label>
-          <label for="animal"> Animal Type:
-            <input ng-model="animal" id="animal" type="text">
-          </label>
-          <label for="age"> Age:
-            <input ng-model="age" id="age" type="text">
-          </label>
-          <label for="image"> Image:
-            <input ng-model="image" id="image" type="text">
-          </label>
-          <input ng-click="addPet(name, animal, age, image)" type="button" value="Add new" id="addnew">
-        </form>
-      </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#add">Add</a></li>
+      <li><a href="#view">View</a></li>
+    </ul>
+    <main ng-view></main>
     </div>
   </body>
 </html>
