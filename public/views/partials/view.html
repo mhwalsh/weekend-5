@@ -1,4 +1,4 @@
-<div ng-controller="viewPetController" id="petView">
+<div ng-init="getPets()" ng-controller="viewPetController" id="petView">
     <div class="petDiv" ng-repeat="pet in pets">
       <div id="petName">
         Name: {{pet.name}}
