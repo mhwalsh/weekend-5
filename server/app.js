@@ -19,6 +19,9 @@ app.use('/', index);
 var pets = require('../routers/pets');
 app.use('/pets', pets);
 
+// static files
+app.use(express.static('public'));
+
 // server listen port
 var portDecision = process.env.PORT || 3000;
 
