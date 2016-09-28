@@ -1,25 +1,20 @@
-myApp.controller('viewPetController', ['$scope', '$http', function($scope, $http) {
-  $scope.getPets = function() {
-    $http({
-      method: 'GET',
-      url: '/pets'
-    }).then(function successCallback(response) {
-      $scope.pets = response.data;
-      console.log('got em =', response);
-    }, function errorCallback(response) {
-      console.log('err');
-    });
-  };
+myApp.controller('viewPetController', ['$scope', '$http', 'PetFactory', function($scope, $http, PetFactory) {
 
+  $scope.testStaticPets = PetFactory.hardCodedPets;
+
+  PetFactory.getPets().then(function() {
+    $scope.pets = PetFactory.serverPets();
+    console.log('scope pets', $scope.pets);
+  });
+
+  //$scope.id would be good too
   $scope.deletePet = function(id) {
-    console.log('clicked delete', id );
-    $http({
-      method: 'DELETE',
-      url: '/pets/' + id
-    }).then(function successCallback(response) {
-      console.log('delete res =', response);
-    }, function errorCallback(response) {
-      console.log('err');
+    console.log('id', id);
+    PetFactory.deletePet(id).then(function(response) {
+
+      PetFactory.getPets().then(function() {
+        $scope.pets = PetFactory.serverPets();
+      });
     });
   };
 }]);

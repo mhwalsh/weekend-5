@@ -1,26 +1,19 @@
-myApp.controller('addPetController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('addPetController', ['$scope', '$http', 'PetFactory',
+  function($scope, $http, PetFactory) {
+
+  $scope.testStaticPets = PetFactory.hardCodedPets;
+
+  PetFactory.getPets().then(function() {
+    $scope.pets = PetFactory.serverPets();
+  });
+
   $scope.addPet = function(name, animalTypeObject, age, image) {
-    var dataToSend ={
-      name: name,
-      animal_type: animalTypeObject.type,
-      age: age,
-      image: image
-    };
-
-    console.log('data to send =', dataToSend);
-
-    //ajax call
-    $http({
-      method: 'POST',
-      url: '/pets',
-      data: dataToSend
-    }).then(function successCallback(response) {
-      console.log('post resp =', response);
-    }, function errorCallback(response) {
-      console.log('err');
+    PetFactory.addPet(name, animalTypeObject, age, image).then(function() {
+      $scope.pets = PetFactory.serverPets();
     });
   };
 
+  // still need to move to the factory
   $http({
     method: 'GET',
     url: '/pets/enum'

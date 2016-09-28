@@ -1,4 +1,7 @@
 <div ng-controller="addPetController">
+  <div>
+    {{testStaticPets}}
+  </div>
   <div id="stylized" class="myform">
     <form>
       <label for="name"> Name:
@@ -15,4 +18,19 @@
       </label>
       <input ng-click="addPet(name, animal, age, image)" type="button" value="Add new" id="addnew">
     </form>
+  </div>
+  <div class="petDiv" ng-repeat="pet in pets">
+    <div id="petName">
+      Name: {{pet.name}}
+    </div>
+    <div id="petType">
+      Animal: {{pet.animal_type}}
+    </div>
+    <div id="petAge">
+      Age: {{pet.age}}
+    </div>
+    <div class="imageDiv">
+      <img class="petImage" ng-src={{pet.image}} alt="a pet" />
+    </div>
+    <button ng-click="deletePet(pet._id)" type="button" name="button">Delete</button>
   </div>
