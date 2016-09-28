@@ -3,13 +3,30 @@ myApp.controller('addPetController', ['$scope', '$http', 'PetFactory',
 
   $scope.testStaticPets = PetFactory.hardCodedPets;
 
-  PetFactory.getPets().then(function() {
+  if(PetFactory.serverPets() === undefined){
+    console.log('undefined');
+    PetFactory.getPets().then(function() {
+      $scope.pets = PetFactory.serverPets();
+      console.log('scope pets', $scope.pets);
+    });
+  }else{
+    console.log('not undefined');
     $scope.pets = PetFactory.serverPets();
-  });
+  }
 
+  //could use $scope to pass these
   $scope.addPet = function(name, animalTypeObject, age, image) {
     PetFactory.addPet(name, animalTypeObject, age, image).then(function() {
       $scope.pets = PetFactory.serverPets();
+    });
+  };
+
+  $scope.deletePet = function(id) {
+    PetFactory.deletePet(id).then(function(response) {
+
+      PetFactory.getPets().then(function() {
+        $scope.pets = PetFactory.serverPets();
+      });
     });
   };
 

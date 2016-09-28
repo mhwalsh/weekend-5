@@ -16,7 +16,7 @@ myApp.factory('PetFactory', ['$http', function($http) {
   // declared, but not instanciated variable that will hold retrieved pets
   var serverPets;
 
-  var getPetsPromise = function() {
+  var getPets = function() {
     console.log('in get pets call in factory');
     var promise = $http({
       method: 'GET',
@@ -31,7 +31,7 @@ myApp.factory('PetFactory', ['$http', function($http) {
     return promise;
   };
 
-   var deletePetPromise = function(id) {
+   var deletePets = function(id) {
     console.log('clicked delete', id );
 
     var promise = $http({
@@ -46,7 +46,7 @@ myApp.factory('PetFactory', ['$http', function($http) {
     return promise;
   };
 
-  var addPetPromise = function(name, animalTypeObject, age, image) {
+  var addPets = function(name, animalTypeObject, age, image) {
     var dataToSend ={
       name: name,
       animal_type: animalTypeObject.type,
@@ -63,7 +63,7 @@ myApp.factory('PetFactory', ['$http', function($http) {
       data: dataToSend
     }).then(function successCallback(response) {
       console.log('post resp =', response);
-      return getPetsPromise();
+      return getPets();
     });
 
     return promise;
@@ -76,15 +76,15 @@ myApp.factory('PetFactory', ['$http', function($http) {
       return serverPets;
     }, // get and return the dynamic data
     // getPets:  function() {
-    //   return getPetsPromise;
-    // OR getPetsPromise();
+    //   return getPets;
+    // OR getPets();
     // }
-    getPets: getPetsPromise, // call the get data promise
+    getPets: getPets, // call the get data promise
     deletePet: function(id) {
-      return deletePetPromise(id);
+      return deletePets(id);
     },
     addPet: function(name, animalTypeObject, age, image) {
-      return addPetPromise(name, animalTypeObject, age, image);
+      return addPets(name, animalTypeObject, age, image);
     }
   };
 }]);
