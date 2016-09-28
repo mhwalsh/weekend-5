@@ -13,7 +13,7 @@ myApp.factory('PetFactory', ['$http', function($http) {
     }
   ];
 
-  // declared, but not instanciated variable that will hold retrieved pets
+  // declared, but not instantiated variable that will hold retrieved pets
   var serverPets;
 
   var getPets = function() {
@@ -77,14 +77,9 @@ myApp.factory('PetFactory', ['$http', function($http) {
     }, // get and return the dynamic data
     // getPets:  function() {
     //   return getPets;
-    // OR getPets();
     // }
     getPets: getPets, // call the get data promise
-    deletePet: function(id) {
-      return deletePets(id);
-    },
-    addPet: function(name, animalTypeObject, age, image) {
-      return addPets(name, animalTypeObject, age, image);
-    }
+    deletePet: deletePets,
+    addPet:  addPets
   };
 }]);
