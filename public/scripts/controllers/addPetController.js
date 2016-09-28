@@ -1,5 +1,12 @@
 myApp.controller('addPetController', ['$scope', '$http', 'PetFactory',
  function($scope, $http, PetFactory) {
+
+  $scope.staticPets = PetFactory.staticPets;
+
+  PetFactory.retrievePets().then(function() {
+    $scope.pets = PetFactory.serverPets();
+  });
+
   $scope.addPet = function(name, animalTypeObject, age, image) {
     var dataToSend ={
       name: name,

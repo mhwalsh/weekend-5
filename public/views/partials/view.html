@@ -1,4 +1,7 @@
 <div ng-init="getPets()" id="petView">
+  <div>
+    {{staticPets}}
+  </div>
     <div class="petDiv" ng-repeat="pet in pets">
       <div id="petName">
         Name: {{pet.name}}
