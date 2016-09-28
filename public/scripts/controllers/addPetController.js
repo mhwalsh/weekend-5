@@ -1,4 +1,5 @@
-myApp.controller('addPetController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('addPetController', ['$scope', '$http', 'PetFactory',
+ function($scope, $http, PetFactory) {
   $scope.addPet = function(name, animalTypeObject, age, image) {
     var dataToSend ={
       name: name,

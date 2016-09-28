@@ -1,4 +1,6 @@
-myApp.controller('viewPetController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('viewPetController', ['$scope', '$http', 'PetFactory',
+function($scope, $http, PetFactory) {
+  
   $scope.getPets = function() {
     $http({
       method: 'GET',
